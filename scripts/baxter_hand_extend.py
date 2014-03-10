@@ -137,21 +137,7 @@ def main():
     traj = Trajectory(limb)
     rospy.on_shutdown(traj.stop)
     p1 = positions[limb]
-    traj.add_point(p1, 0.05)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.00 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0,0,0,0,0,0, 0],
-        'right':  [0,0,0,0,0,0,0],
-    }
-
-    traj = Trajectory(limb)
-    rospy.on_shutdown(traj.stop)
-    p1 = positions[limb]
-    traj.add_point(p1, 0.1)
+    traj.add_point(p1, 2)
     #traj.add_point([x * 0.75 for x in p1], 9.0)
     traj.add_point([x * 1.00 for x in p1], 3.0)
     traj.start()

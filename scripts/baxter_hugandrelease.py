@@ -160,19 +160,66 @@ def main():
     rospy.sleep(3.)
 
     positions = {
+        'left':  [0, 0, 0, 0, 0, 0, 0],
+        'right':  [0, 0, 0, 0, 0, 0, 0],
+    }
+
+    traj = Trajectory('right')
+    rospy.on_shutdown(traj.stop)
+
+    p1 = positions['right']
+    traj.add_point(p1, 1.0)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.00 for x in p1], 3.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
         'left':  [-0.4, 0, 0, 1.4, 0, 0, 0],
         'right':  [0.4, 0 , 0, 1.4, 0, 0, 0],
     }
 
-    traj = Trajectory(limb)
+    traj = Trajectory('right')
     rospy.on_shutdown(traj.stop)
 
-    p1 = positions[limb]
+    p1 = positions['right']
     traj.add_point(p1, 1.0)
     #traj.add_point([x * 0.75 for x in p1], 9.0)
     traj.add_point([x * 1.00 for x in p1], 3.0)
     traj.start()
     traj.wait(15.0)
+
+    positions = {
+        'left':  [0, 0, 0, 0, 0, 0, 0],
+        'right':  [0, 0, 0, 0, 0, 0, 0],
+    }
+
+    traj = Trajectory('left')
+    rospy.on_shutdown(traj.stop)
+
+    p1 = positions['left']
+    traj.add_point(p1, 1.0)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.00 for x in p1], 3.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [-0.4, 0, 0, 1.4, 0, 0, 0],
+        'right':  [0.4, 0 , 0, 1.4, 0, 0, 0],
+    }
+
+    traj = Trajectory('left')
+    rospy.on_shutdown(traj.stop)
+
+    p1 = positions['left']
+    traj.add_point(p1, 1.0)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    traj.add_point([x * 1.00 for x in p1], 3.0)
+    traj.start()
+    traj.wait(15.0)
+
+    
 
     print("Exiting - Joint Trajectory Action Test Complete")
 

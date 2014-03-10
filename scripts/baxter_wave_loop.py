@@ -129,328 +129,365 @@ def main():
     rs.enable()
     print("Running. Ctrl-c to quit")
 
-    # RIGHT HAND MOTIONS
-
     positions = {
-        'left':  [0.8,0, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 0, 0, 0, 0, 0],
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -0.2, 0],
     }
 
-    traj = Trajectory('right')
+    traj = Trajectory(limb)
     rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 3)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0.2, 0, 0.4, 0, -1.5, 0],
-        'right':  [-0.8, 0, 0, 0, 0, -1.6, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['right']
-    traj.add_point(p1, 0.7)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,-0.2, 0, 0, 0, 1.5, 0],
-        'right':  [-0.8, -0.3, 0, 0, 0, 1.6, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['right']
-    traj.add_point(p1, 0.7)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0, 0, 0, 0, -1.5, 0],
-        'right':  [-0.8, -0.3, 0, 1.3, 0, -1.6, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['right']
-    traj.add_point(p1, 0.7)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0, 0, 0, 0, -1.5, 0],
-        'right':  [-0.8, 0.2, 0, 0, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['right']
-    traj.add_point(p1, 0.7)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    # LEFT HAND MOTIONS
-
-    positions = {
-        'left':  [0.8,0.2, 0, 0.8, 0, -1.5, 0],
-        'right':  [-0.8, 0, 0, 0, 0, -1.5, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['left']
+    p1 = positions[limb]
     traj.add_point(p1, 1)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,-0.6, 0, 0, 0, 1.5, 0],
-        'right':  [-0.8, -0.2, 0, 0, 0, 1.5, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['left']
-    traj.add_point(p1, 1)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0, 0, 0, 0, -1.5, 0],
-        'right':  [-0.8, 0.2, 0, 0.4, 0, -1.5, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['left']
-    traj.add_point(p1, 1)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)   
-
-    rospy.sleep(5.)
-
-    positions = {
-        'left':  [0.8,0, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 0, 0, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [-0.4,-1.4, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 0, 0, 0, 0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [-0.4,-1.4, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0, -3.3, 1.6,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0,0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-	    
-    positions = {
-        'left':  [0.8,-1.0, -3, 0.2,0, 0, 0],
-        'right':  [-0.8, -1, 3, 0.2, 0,0, 0],
-    }
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 2)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [-0.4,-1.4, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0.6, -3, 1.6,0, 0, 0],
-        'right':  [-0.8, 0.6, 3, 1.6, 0,0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 2)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,0, -3.3, 1.6,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0,0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,-1.0, -3, 0.2,0, 0, 0],
-        'right':  [-0.8, -1, 3, 0.2, 0,0, 0],
-    }
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 2)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [-0.4,-1.4, 0, 0,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['right']
-    traj.add_point(p1, 2)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.8,-1, -3, 0.2,0, 0, 0],
-        'right':  [-0.8, 0.6, 3, 1.6, 0,0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 2)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 12.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [0.4,-1.4, -3.3, 1.6,0, 0, 0],
-        'right':  [-0.8, 0, 3.3, 1.6, 0,0, 0],
-    }
-
-    traj = Trajectory('left')
-    rospy.on_shutdown(traj.stop)
-    p1 = positions['left']
-    traj.add_point(p1, 1.5)
-    #traj.add_point([x * 0.75 for x in p1], 9.0)
-    #traj.add_point([x * 1.25 for x in p1], 3.0)
-    traj.start()
-    traj.wait(15.0)
-
-    positions = {
-        'left':  [-0.4, -0.4, 0, 1.8, 0, 0, 0],
-        'right':  [0.4, -0.4, 0, 1.8, 0, 0, 0],
-    }
-
-    traj = Trajectory('right')
-    rospy.on_shutdown(traj.stop)
-
-    p1 = positions['right']
-    traj.add_point(p1, 1.0)
     #traj.add_point([x * 0.75 for x in p1], 9.0)
     traj.add_point([x * 1.00 for x in p1], 3.0)
     traj.start()
     traj.wait(15.0)
 
     positions = {
-        'left':  [-0.4, -0.4, 0, 1.8, 0, 0, 0],
-        'right':  [0.4, -0.4, 0, 1.8, 0, 0, 0],
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
     }
 
-    traj = Trajectory('left')
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -0.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    rospy.sleep(2.)
+
+    #BAXTER WAVE EXTRA
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -0.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    rospy.sleep(2.)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -1.2, 2],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, 1.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    positions = {
+        'left':  [0.8,1, 0, 0,0, 0, 0],
+        'right':  [-0.8, -0.3, 2.9, 1.4 , 0.2, -0.2, -1],
+    }
+
+    traj = Trajectory(limb)
+    rospy.on_shutdown(traj.stop)
+    p1 = positions[limb]
+    traj.add_point(p1, 1)
+    #traj.add_point([x * 0.75 for x in p1], 9.0)
+    #traj.add_point([x * 1.25 for x in p1], 12.0)
+    traj.start()
+    traj.wait(15.0)
+
+    rospy.sleep(2.)
+
+    positions = {
+        'left':  [-0.4, 0, 0, 1.4, 0, 0, 0],
+        'right':  [0.4, 0 , 0, 1.4, 0, 0, 0],
+    }
+
+    traj = Trajectory(limb)
     rospy.on_shutdown(traj.stop)
 
-    p1 = positions['left']
+    p1 = positions[limb]
     traj.add_point(p1, 1.0)
     #traj.add_point([x * 0.75 for x in p1], 9.0)
     traj.add_point([x * 1.00 for x in p1], 3.0)
     traj.start()
     traj.wait(15.0)
-
+    
     print("Exiting - Joint Trajectory Action Test Complete")
 
 if __name__ == "__main__":

@@ -137,7 +137,7 @@ def main():
     traj = Trajectory('right')
     rospy.on_shutdown(traj.stop)
     p1 = positions['right']
-    traj.add_point(p1, 2)
+    traj.add_point(p1, 3)
     #traj.add_point([x * 0.75 for x in p1], 9.0)
     traj.add_point([x * 1.00 for x in p1], 3.0)
     traj.start()
